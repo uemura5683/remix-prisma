@@ -8,6 +8,8 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
+    "tdev": "tailwindcss -i ./_css/tailwind.css -o ./public/tailwind.css",
+    "tdev:watch": "tailwindcss -i ./_css/tailwind.css -o ./public/tailwind.css -w",
     "typecheck": "tsc"
   },
   "dependencies": {

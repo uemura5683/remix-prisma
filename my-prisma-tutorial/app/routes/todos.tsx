@@ -3,14 +3,13 @@ import { Outlet } from "@remix-run/react";
 
 export default function Todos() {
   return (
-    <div className="bg-orange-300">
-      <div className="flex items-center space-x-6 ">
-        <h1 className="text-2xl font-bold">Todoページ</h1>
+    <div className="tw-bg-orange-300">
+      <div className="tw-flex tw-items-center space-x-6 ">
+        <h1 className="tw-text-2xl tw-font-bold">Todoページ</h1>
       </div>
 
-      <div className="mb-4 mt-2 border-2 border-gray-400" />
-      {/* /todos~の共通箇所はroot.tsxと同様にOutletコンポーネントを使用できる。*/}
-      <Outlet />
-    </div>
+      <div className="tw-mb-4 tw-mt-2 tw-border-2 tw-border-gray-400" />
+        <Outlet />
+      </div>
   );
 }

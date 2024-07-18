@@ -17,7 +17,7 @@ export default function TodosIndex() {
   const todos = useLoaderData<typeof loader>();
 
   return (
-    <div className="bg-yellow-100">
+    <div className="tw-bg-yellow-100">
       <div>
         <div>
           <div>todo名</div>
@@ -27,14 +27,7 @@ export default function TodosIndex() {
       <div>
         {todos.map((todo) => (
           <div key={todo.id}>
-            <div className="w-4/12">{todo.title}</div>
-            <div className="w-4/12">
-              {todo.done ? "完了" : "未了"}
-            </div>
-            <div className="w-4/12 space-x-2">
-              <button>編集</button>
-              <button>削除</button>
-            </div>
+            <div className="tw-w-4/12">{todo.title}</div>
           </div>
         ))}
       </div>
