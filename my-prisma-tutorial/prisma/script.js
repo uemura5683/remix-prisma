@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.Todolist.create({
+  await prisma.todoList.create({
     data: {
       title: "todo1",
       done: true,

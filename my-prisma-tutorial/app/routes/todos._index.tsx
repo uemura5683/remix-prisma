@@ -5,7 +5,7 @@ import { prisma } from "~/db.server";
 // Remixでは各ページファイルでloaderという名前の関数に取得処理を記載し、exportするとことで、自動でデータの取得を行いUIに渡します。
 export const loader = async () => {
   // サーバー側で取得するので、prismaを使用し、直接データ取得できる
-  const todos = await prisma.todo.findMany();
+  const todos = await prisma.todoList.findMany();
   // jsonはRemixが用意しているヘルパー関数
   return json(todos);
 };
