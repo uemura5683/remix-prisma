@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Todo" (
+CREATE TABLE "TodoList" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,
     "done" BOOLEAN NOT NULL
