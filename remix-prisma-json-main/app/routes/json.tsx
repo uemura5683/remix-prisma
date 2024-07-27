@@ -10,9 +10,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const password = searchParams.get('password');
 
   const todos = await prisma.idpass.findMany();
-  const exists = todos.some((todo: any) => todo.id == id && todo.password == password);
-
-  return json({ exists }, {
+  // jsonはRemixが用意しているヘルパー関数
+  // JSONレスポンスを返す
+  return json({ todos }, {
     headers: {
       "Content-Type": "application/json"
     }
@@ -20,8 +20,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
+  const todos = useLoaderData<typeof loader>();
   return (
-    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <pre>{JSON.stringify(todos, null, 2)}</pre>
   );
 }
