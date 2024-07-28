@@ -83,3 +83,9 @@ fly deploy
 参考記事
 https://qiita.com/00000000/items/4f7768350f9e03a12c9b
 https://fly.io/docs/reference/configuration/
+
+管理画面
+https://fly.io/apps/remix-prisma-json-main-ancient-paper-3954
+
+URL
+https://remix-prisma-json-main-ancient-paper-3954.fly.dev/
