@@ -1,0 +1,85 @@
+---------
+
+fly launchで新たにアプリを作成してデプロイ
+
+fly launch起動に関してのトラブルシューティング
+
+>We need your payment information to continue! Add a credit card or buy credit: https://fly.io/dashboard/3803/billing
+
+こちらはクレジットの設定してくださいねという意味
+こちらを有効にするにはクレジットカードの登録が必要だそうです。
+
+https://fly.io/dashboard/3803/billing
+
+を開いて設定してください。
+
+---------
+
+failed to fetch an image or build from source: failed to restart VM 784e666f2d1058: failed_precondition: unable to restart machine, not currently started or stopped (Request ID: xxxxxx-nrt) (Trace ID: xxxx)
+user@USERnoMacBook-Air remix-prisma-json-main % fly auth login
+Opening https://fly.io/app/auth/cli/xxx ...
+
+ログイン認証、取れてないから再起動失敗しましたという意味
+
+fly auth login
+
+で叩いてログインした後
+
+fly launch
+
+で実行すれば解消される
+
+https://qiita.com/g-murata/items/26d6758b7b4edfaae844
+
+---------
+
+コマンドでしれくとりを確認したい場合
+fly ssh console -a　{URL}
+
+でOK
+
+---------
+
+fly ssh console -a　{URL}
+
+でアクセスした時に
+
+Error: app {URL} has no started VMs.　It may be unhealthy or not have been deployed yet.　Try the following command to verify:
+
+て出てくる場合
+
+fly statusで確認して
+STATEがstoppedになっている場合はIDを起動する必要があります。
+
+flyctl machine start ID
+
+例：
+
+Machines
+PROCESS ID              VERSION REGION  STATE   ROLE    CHECKS  LAST UPDATED         
+app     48ed666a7d2768  1       nrt     stopped                 2024-07-27T13:54:44Z
+
+アプリケーションを再起動
+
+flyctl machine start 48ed666a7d2768
+
+---------
+
+アプリは 1 台のマシンで実行されており、
+次の 1 つのコマンドを実行するだけで、アプリを拡張して複数のマシンで実行し、高可用性を確保できます。
+
+fly scale count 2
+
+https://fly.io/docs/launch/scale-count/
+
+----------
+
+すでにあるアプリを修正してデプロイする場合
+
+fly deploy
+
+----------
+
+参考記事
+https://qiita.com/00000000/items/4f7768350f9e03a12c9b
+https://fly.io/docs/reference/configuration/
