@@ -12,16 +12,12 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const todos = await prisma.idpass.findMany();
   // jsonはRemixが用意しているヘルパー関数
   // JSONレスポンスを返す
-  return json({ todos }, {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  return json({ todos });
 };
 
 export default function Index() {
   const todos = useLoaderData<typeof loader>();
   return (
-    <pre>{JSON.stringify(todos, null, 2)}</pre>
+    <>{JSON.stringify(todos, null, 2)}</>
   );
 }
